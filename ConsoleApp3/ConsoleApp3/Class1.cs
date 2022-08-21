@@ -3,11 +3,11 @@ using System.Threading;
 
 namespace OXGAME
 {
-    class Program
+    class Class1
     {
         static char[] arr = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
         static int player = 1;
-        static int choice; 
+        static int choice;
         static int flag = 0;
 
         static void Main(string[] args)
@@ -30,7 +30,7 @@ namespace OXGAME
                 choice = int.Parse(Console.ReadLine());
                 if (arr[choice] != 'X' && arr[choice] != 'O')
                 {
-                    if (player % 2 == 0) 
+                    if (player % 2 == 0)
                     {
                         arr[choice] = 'O';
                         player++;
@@ -51,11 +51,11 @@ namespace OXGAME
                 flag = CheckWin();
             }
             while (flag != 1 && flag != -1);
-           
+
             Console.Clear();
             Board();
             if (flag == 1)
-          
+
             {
                 Console.WriteLine("플레이어 {0}님이 승리하셨습니다!", (player % 2) + 1);
             }
@@ -65,7 +65,7 @@ namespace OXGAME
             }
             Console.ReadLine();
         }
-       
+
         private static void Board()
         {
             Console.WriteLine("     |     |      ");
@@ -78,10 +78,10 @@ namespace OXGAME
             Console.WriteLine("  {0}  |  {1}  |  {2}", arr[7], arr[8], arr[9]);
             Console.WriteLine("     |     |      ");
         }
-        
+
         private static int CheckWin()
         {
-           
+
             //첫째줄의 우승 조건(가로)
             if (arr[1] == arr[2] && arr[2] == arr[3])
             {
@@ -113,7 +113,7 @@ namespace OXGAME
             {
                 return 1;
             }
-           
+
             else if (arr[1] == arr[5] && arr[5] == arr[9])
             {
                 return 1;
@@ -122,13 +122,13 @@ namespace OXGAME
             {
                 return 1;
             }
-           
+
             // 무승부의 조건(모든 칸이 다 채워졌음에도 끝나지 않았을 때)
             else if (arr[1] != '1' && arr[2] != '2' && arr[3] != '3' && arr[4] != '4' && arr[5] != '5' && arr[6] != '6' && arr[7] != '7' && arr[8] != '8' && arr[9] != '9')
             {
                 return -1;
             }
-           
+
             else
             {
                 return 0;
